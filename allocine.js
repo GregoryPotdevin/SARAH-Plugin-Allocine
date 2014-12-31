@@ -4,7 +4,7 @@ exports.action = function(data, callback, config, SARAH){
   
   var url = 'http://mobile.allocine.fr/salle/seances_gen_csalle='+place+'.html';
   var request = require('request');
-  request({ 'uri' : url }, function (err, response, body){
+  request({ 'uri' : url, 'encoding': 'binary' }, function (err, response, body){
     
     if (err || response.statusCode != 200) {
       callback({'tts': "L'action a échoué"});
